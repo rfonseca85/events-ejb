@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<arquillian xmlns="http://jboss.org/schema/arquillian"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://jboss.org/schema/arquillian http://jboss.org/schema/arquillian/arquillian_1_0.xsd">
+    <container qualifier="glassfish-embedded" default="true">
+        <configuration>
+            <property name="resourcesXml">
+                src/test/resources-glassfish-embedded/glassfish-resources.xml
+            </property>
+            <property name="bindHttpPort">18080</property>
+        </configuration>
+    </container>
+    <extension qualifier="persistence">
+        <property name="defaultDataSource">jdbc/eventlab</property>
+    </extension>
+    <extension qualifier="persistence-dbunit">
+        <property name="datatypeFactory">org.dbunit.dataset.datatype.DefaultDataTypeFactory</property>
+        <property name="excludePoi">true</property>
+    </extension>
+</arquillian>
+
